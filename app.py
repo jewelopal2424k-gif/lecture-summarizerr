@@ -3,7 +3,7 @@ import whisper
 from openai import OpenAI
 import tempfile
 
-st.title("Smart Lecture Summarizer")
+st.title("Smart Lecture Summarizerr")
 
 # 🔹 ضع مفتاح OpenAI هنا مباشرة
 client = OpenAI(api_key="sk-proj-ewlqgXJCEeYWZ1eRququ44s3mdQyUwGMpsPVogr2Pb0JFWJLeGsysBfv9TfmkXhxCtoQmOIXET3BlbkFJmOZdaQKeZw-fv9XWv82zB6EGWSzfLv0ODWpODQDyDj7v-tw1uoG_sIRyoMsbbFHGnd2SZ9oIYA")

@@ -1,12 +1,12 @@
 import streamlit as st
 import whisper
-from openai import OpenAI
 import tempfile
+from openai import OpenAI
 
-st.title("Smart Lecture Summarizerr")
+st.title("Smart Lecture Summarizer")
 
-# 🔹 ضع مفتاح OpenAI هنا مباشرة
-client = OpenAI(api_key="sk-proj-ewlqgXJCEeYWZ1eRququ44s3mdQyUwGMpsPVogr2Pb0JFWJLeGsysBfv9TfmkXhxCtoQmOIXET3BlbkFJmOZdaQKeZw-fv9XWv82zB6EGWSzfLv0ODWpODQDyDj7v-tw1uoG_sIRyoMsbbFHGnd2SZ9oIYA")
+# 🔹 استخدمي مفتاح OpenAI المخزن في Secrets (آمن للطلاب)
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 # رفع الملف الصوتي
 audio_file = st.file_uploader("Upload your lecture audio (mp3, wav, m4a)")
@@ -17,7 +17,7 @@ if audio_file:
         tmp.write(audio_file.read())
         tmp_path = tmp.name
 
-    # تحويل الصوت لنص باستخدام Whisper
+    # تحويل الصوت إلى نص باستخدام Whisper
     model = whisper.load_model("base")
     result = model.transcribe(tmp_path)
     text = result["text"]
